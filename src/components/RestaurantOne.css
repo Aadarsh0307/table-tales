@@ -1,0 +1,200 @@
+.full-container {
+  background-color: #f8f8f800; /* Change to a consistent background color */
+  overflow: auto;
+  min-height: calc(100vh - 100px);
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* Adjusted for vertical alignment */
+  height: 90vh; /* Adjusted to full viewport height */
+  background-color: rgba(0, 0, 0, 0);  /* Change to a consistent background color */
+  width: 100%; /* Adjusted to full width */
+  padding: 20px; /* Added padding for better spacing */
+  margin-bottom: 40px;
+  overflow: auto;
+}
+
+.name-container {
+  background-color: #000000ac; /* Change to a consistent background color */
+  color: white;
+  width: 800px;
+  height: auto; /* Adjusted to auto height */
+  border-radius: 10px;
+  position: relative;
+  margin-top: 20px; /* Adjusted for spacing */
+  padding: 20px; /* Added padding for better spacing */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+}
+
+.name{
+  font-size: 25px;
+  margin-left: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+p {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.book-container {
+  margin-top: 20px; /* Adjusted for spacing */
+  width: 350px;
+  height: auto; /* Adjusted to auto height */
+  background-color: #000000ac; /* Change to a consistent background color */
+  border-radius: 10px;
+  position: relative;
+  padding: 20px; /* Added padding for better spacing */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+  flex-direction: row;
+}
+
+.restaurant-name,
+.about-restaurant,
+.restaurant-photos {
+  margin-top: 20px; /* Adjusted for spacing */
+  background-color: rgba(47, 47, 47, 0.5); /* Change to a consistent background color */
+  border-radius: 10px;
+  padding: 20px; /* Added padding for better spacing */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+  color: white;
+  text-align: center;
+}
+
+.input-group select, .input-group .react-datepicker-wrapper {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.input-group .react-datepicker__input-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.input-group select#personSelector {
+  background-color: #fff; /* White background color */
+  color: #000000; /* Text color */
+  border-radius: 8px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+/* TimeSelector.css */
+
+.time-selector {
+  margin-bottom: 20px;
+}
+
+
+.react-time-picker {
+  width: 100%;
+}
+
+.react-time-picker__wrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.react-time-picker__inputGroup {
+  width: 100%;
+}
+
+.react-time-picker_inputGroup_input {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.react-time-picker__clock {
+  margin-left: 10px;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.rectangle{
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: black;
+  text-align: center;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-color: #438b47;
+  border-width: 3px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.rectangle:hover {
+  border-color:  rgb(189, 225, 170); /* Darker green on hover */
+}
+
+.rectangle2{
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  justify-content: space-around;
+  /* align-items: center;
+  align-items: center; */
+  text-align: center;
+  float: left;
+  margin-left: 23px;
+  margin-top: 25px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.rectangle2:hover {
+  transform: scale(1.05);
+}
+
+body{
+  margin-bottom: 100px;
+}
+
+.book-table-button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #db3434; 
+  color: #000000; /* White text color */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s; /* Smooth transition on hover */
+  margin-top: 20px;
+}
+
+.book-table-button:hover {
+  background-color: #ff9191; /* Darker blue on hover */
+}
