@@ -16,6 +16,37 @@ function ProfilePage() {
 
   const [selectedProfilePicture, setSelectedProfilePicture] = useState(null);
 
+  useEffect(() => {
+    // Mock data for demonstration
+    const dummyRecentBookings = [
+      {
+        bookingId: '12345',
+        dayBooked: 'Monday',
+        dateBooked: '2023-11-20',
+        timeBooked: '10:00 AM',
+        numSeatsBooked: 2,
+      },
+      {
+        bookingId: '67890',
+        dayBooked: 'Wednesday',
+        dateBooked: '2023-11-22',
+        timeBooked: '02:30 PM',
+        numSeatsBooked: 3,
+      },
+    ];
+
+    const dummyCurrentBooking = {
+      bookingId: 'ABCDE',
+      dayBooked: 'Friday',
+      dateBooked: '2023-11-24',
+      timeBooked: '12:15 PM',
+      numSeatsBooked: 1,
+    };
+
+    setRecentBookings(dummyRecentBookings);
+    setCurrentBooking(dummyCurrentBooking);
+  }, []);
+
   const handleEdit = () => {
     setIsEditing(true);
   };
@@ -60,37 +91,6 @@ function ProfilePage() {
     alert('Editing profile photo...');
   };
 
-  useEffect(() => {
-    // Mock data for demonstration
-    const dummyRecentBookings = [
-      {
-        bookingId: '12345',
-        dayBooked: 'Monday',
-        dateBooked: '2023-11-20',
-        timeBooked: '10:00 AM',
-        numSeatsBooked: 2,
-      },
-      {
-        bookingId: '67890',
-        dayBooked: 'Wednesday',
-        dateBooked: '2023-11-22',
-        timeBooked: '02:30 PM',
-        numSeatsBooked: 3,
-      },
-    ];
-
-    const dummyCurrentBooking = {
-      bookingId: 'ABCDE',
-      dayBooked: 'Friday',
-      dateBooked: '2023-11-24',
-      timeBooked: '12:15 PM',
-      numSeatsBooked: 1,
-    };
-
-    setRecentBookings(dummyRecentBookings);
-    setCurrentBooking(dummyCurrentBooking);
-  }, []);
-
   const pageStyle = {
     background: `url(${process.env.PUBLIC_URL}/profile-background.jpg)`,
   };
@@ -102,15 +102,22 @@ function ProfilePage() {
 
         <div className="AvatarUpload">
           <div className="AvatarPreview" onClick={() => document.getElementById('fileInput') && document.getElementById('fileInput').click()}>
-            <div
-              style={{
-                background: `url(${
-                  profilePicture ||
-                  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
-                })`,
-              }}
-            />
+            {profilePicture ? (
+              <img
+                src={profilePicture}
+                alt="Profile"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                }}
+              />
+            ) : (
+              <div className="DefaultProfilePicture" />
+            )}
           </div>
+
           {isEditing && (
             <div className="AvatarEdit">
               <input
@@ -197,14 +204,14 @@ function ProfilePage() {
               <p><strong>Number of Seats Booked:</strong> {currentBooking.numSeatsBooked}</p>
             </div>
             
-              <div className="EditButtonContainer">
-                <button onClick={handleUpdateBooking} className="UpdateBookingButton">
-                  Update Booking
-                </button>
-                <button onClick={handleCancelBooking} className="CancelBookingButton">
-                  Cancel Booking
-                </button>
-              </div>
+            <div className="EditButtonContainer">
+              <button onClick={handleUpdateBooking} className="UpdateBookingButton">
+                Update Booking
+              </button>
+              <button onClick={handleCancelBooking} className="CancelBookingButton">
+                Cancel Booking
+              </button>
+            </div>
             
           </div>
         )}
@@ -229,4 +236,5 @@ function ProfilePage() {
     </div>
   );
 }
+
 export default ProfilePage;
