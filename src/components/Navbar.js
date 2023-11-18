@@ -16,7 +16,7 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-nav ml-auto">
-        <NavLink className="nav-link text-white" to="/login" activeClassName="active" style={{ fontWeight: 'bold' }}>Signin</NavLink>
+        <NavLink className="nav-link text-white" to="/restaurant-login" activeClassName="active" style={{ fontWeight: 'bold' }}>Signin</NavLink>
         <NavLink className="nav-link text-white" to="/signup" activeClassName="active" style={{ fontWeight: 'bold' }}>Signup</NavLink>
         <NavLink className="nav-link text-white" to="/profile" activeClassName="active" style={{ fontWeight: 'bold' }}>Profile</NavLink>
       </div>
