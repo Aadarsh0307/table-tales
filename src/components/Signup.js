@@ -183,7 +183,7 @@ function Signup() {
                 </form>
                 <p className="mt-3 login-link">
                   Already have an account?{' '}
-                  <Link to="/login">Log in</Link>
+                  <Link to="/restaurant-login">Log in</Link>
                 </p>
               </div>
             </div>
