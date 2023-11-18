@@ -12,7 +12,7 @@
   }
 
   .WhiteBackground {
-    background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 20px;
   padding: 20px;
   width: 70%;
@@ -163,7 +163,8 @@
 .SaveButton,
 .CancelButton,
 .UpdateBookingButton,
-.CancelBookingButton {
+.CancelBookingButton,
+.LogoutButton {
   font-size: 16px;
   padding: 10px;
   margin-right: 10px;
@@ -183,6 +184,26 @@
 
 .EditButton:hover {
   border-color: #6f9fff;
+}
+
+.LogoutButton {
+  justify-content: center;
+  color: #ffffff;
+  background-color: black;
+  border: 2 px solid rgba(0, 0, 0,);
+  width: 110px;
+  transition: border-color 0.3s ease;
+  border-radius: 50px;
+}
+
+.LogoutButton:hover {
+  border-color: #606060;
+}
+
+.LogoutButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; 
 }
 
 .SaveButton {
