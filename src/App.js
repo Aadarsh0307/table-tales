@@ -12,8 +12,6 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ProfilePage from './components/ProfilePage';
-import AdminLogin from './components/AdminLogin';
-import AdminSignup from './components/AdminSignup';
 
 function App() {
   return (
@@ -28,8 +26,6 @@ function App() {
           <Route path="/search-bar" element={<SearchBar />} />
           <Route path="/book-table" element={<BookTable />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-signup" element={<AdminSignup />} />
         </Routes>
         <Footer />
       </div>
