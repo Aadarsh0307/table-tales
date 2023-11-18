@@ -12,6 +12,8 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ProfilePage from './components/ProfilePage';
+import AdminLogin from './components/AdminLogin';
+import AdminSignup from './components/AdminSignup';
 
 function App() {
   return (
@@ -21,11 +23,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/restaurant-login" element={<RestaurantLogin />} />
+          <Route path="/login" element={<RestaurantLogin />} />
           <Route path="/restaurant/1" element={<RestaurantOne />} />
           <Route path="/search-bar" element={<SearchBar />} />
           <Route path="/book-table" element={<BookTable />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-signup" element={<AdminSignup />} />
         </Routes>
         <Footer />
       </div>
