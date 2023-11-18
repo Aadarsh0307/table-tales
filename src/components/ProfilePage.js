@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 
 function ProfilePage() {
@@ -15,6 +16,18 @@ function ProfilePage() {
   const [newPhoneNumber, setNewPhoneNumber] = useState(phoneNumber);
 
   const [selectedProfilePicture, setSelectedProfilePicture] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    const isConfirmed = window.confirm('Are you sure you want to log out?');
+
+    if (isConfirmed) {
+    alert('Logging out...');
+
+    navigate('/'); // Redirect to home page after logout
+    }
+  };
 
   useEffect(() => {
     // Mock data for demonstration
@@ -186,11 +199,13 @@ function ProfilePage() {
               </button>
             </>
           )}
-          {!isEditing && (
+        {!isEditing && (
+          <>
             <button onClick={handleEdit} className="EditButton">
               Edit Profile
             </button>
-          )}
+          </>
+        )}
         </div>
 
         <h2>Current Booking</h2>
@@ -231,6 +246,11 @@ function ProfilePage() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="LogoutButtonContainer">
+          <button onClick={handleLogout} className="LogoutButton">
+            Logout
+          </button>
         </div>
       </div>
     </div>
