@@ -1,8 +1,9 @@
-import React from 'react';
-import './BookTable.css';
-import { useEffect, useState, } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import './BookTable.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function BookTable() {
   const [data, setData] = useState([]);
@@ -11,6 +12,7 @@ function BookTable() {
   const [price, setPrice] = useState(10000);
   const [option, setOption] = useState('Ratings');
   const [location, setLocation] = useState('Delhi');
+  const navigate = useNavigate();
 
   const pageStyle = {
     background: `url(${process.env.PUBLIC_URL}/booktable-img.jpg)`,
@@ -31,36 +33,40 @@ function BookTable() {
     backgroundSize: 'cover',
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  };
 
   const restaurants = [
     {
       id: 1,
       name: 'Restaurant A',
+      Price: '3000 for 2',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       imageUrl: 'https://example.com/restaurant-a.jpg',
+      Ratings: '4.5',
     },
     {
       id: 2,
       name: 'Restaurant B',
+      Price: '6900 for 2',
       description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       imageUrl: 'https://example.com/restaurant-b.jpg',
+      Ratings: '4.2',
     },
     {
       id: 3,
       name: 'Restaurant C',
+      Price: '4200 for 2',
       description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
       imageUrl: 'https://example.com/restaurant-c.jpg',
+      Ratings: '4.8',
     },
     // Add more restaurants as needed
   ];
 
-  const navigate = useNavigate();
-
   const handleCardClick = (restaurantId) => {
     navigate.push(`/restaurant/${restaurantId}`);
   };
-  
+
   const chunkArray = (arr, size) => {
     return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
       arr.slice(i * size, i * size + size)
@@ -71,7 +77,8 @@ function BookTable() {
 
   useEffect(() => {
 
-            // Axios.get('http://localhost:3000/restaurants')
+    
+        // Axios.get('http://localhost:3000/restaurants')
         // .then((res)=>{
         //     if(res.status == 200)
         //     {
@@ -244,37 +251,45 @@ function BookTable() {
                 <option value="Delhi">Delhi</option>
                 <option value="Mumbai">Mumbai</option>
               </select>
-              <div className="restaurant-list">
-      <div className="restaurant-rows">
-        {restaurantRows.map((row, rowIndex) => (
-          <div className="restaurant-row" key={rowIndex}>
-            {row.map((restaurant) => (
-              <Link to={`/restaurant/${restaurant.id}`} key={restaurant.id} style={{ textDecoration: 'none', color: 'inherit' }}>
-  <div className="restaurant-card" style={restaurantImage}>
-    <div className="card-content">
-      <h3>{restaurant.name}</h3>
-      <p>{restaurant.description}</p>
-    </div>
-  </div>
-</Link>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
+            </div>
+            <div className="restaurant-list">
+              <div className="restaurant-rows">
+                {restaurantRows.map((row, rowIndex) => (
+                  <div className="restaurant-row" key={rowIndex}>
+                    {row.map((restaurant) => (
+                      <Link
+                        to={`/restaurant/${restaurant.id}`}
+                        key={restaurant.id}
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                      >
+                        <div className="restaurant-card" style={restaurantImage}>
+                        <div className="rating-badge">
+                          <span style={{ marginRight: '5px' }}>{parseFloat(restaurant.Ratings)}</span>
+                          <FontAwesomeIcon icon={faStar} />
+                        </div>
+                          <div className="card-content">
+                            <h3>{restaurant.name}</h3>
+                            <h4>₹{restaurant.Price}</h4>
+                            <p>{restaurant.description}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="card-container">
-            {data
-              .sort((a, b) => {
-                if (option === 'Ratings') {
-                  return b.Ratings - a.Ratings;
-                } else if (option === 'Price') {
-                  return a.AvgPrice - b.AvgPrice;
-                }
-                return 0;
-              })
-              .map((val) => {
-                return (
+              {data
+                .sort((a, b) => {
+                  if (option === 'Ratings') {
+                    return b.Ratings - a.Ratings;
+                  } else if (option === 'Price') {
+                    return a.AvgPrice - b.AvgPrice;
+                  }
+                  return 0;
+                })
+                .map((val) => (
                   <div className="menu-item" key={val._id}>
                     <img src={val.Images[0]} alt={val.Name} />
                     <span className="menu-item-title">{val.Name}</span>
@@ -289,11 +304,10 @@ function BookTable() {
                       <span>Price: ₹{val.AvgPrice}</span>
                     </div>
                   </div>
-                );
-              })}
+                ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </>
   );
